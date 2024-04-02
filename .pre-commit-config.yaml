@@ -11,19 +11,6 @@ repos:
         types: [text]
         stages: [commit, push, manual]
 
-  - repo: https://github.com/executablebooks/mdformat
-    rev: 0.7.17
-    hooks:
-      - id: mdformat
-        additional_dependencies:
-          - mdformat-mkdocs
-          - mdformat-admon
-
-  - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.39.0
-    hooks:
-      - id: markdownlint-fix
-
   - repo: https://github.com/abravalheri/validate-pyproject
     rev: v0.16
     hooks:

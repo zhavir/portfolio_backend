@@ -19,7 +19,7 @@ jobs:
         uses: abatilo/actions-poetry@v3
       - uses: pre-commit/action@v3.0.1
         with:
-          extra_args: --all-files --show-diff-on-failure
+          extra_args: --all-files
       - uses: actions/cache@v4
         name: Define a cache for the virtual environment based on the dependencies lock file
         with:
