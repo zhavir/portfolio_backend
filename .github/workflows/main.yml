@@ -51,6 +51,9 @@ jobs:
   update-version-number:
     runs-on: ubuntu-latest
     needs: [semver]
+    if: ${{ needs.semver.outputs.new_tag_version }}
+    env:
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
