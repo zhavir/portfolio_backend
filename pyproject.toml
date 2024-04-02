@@ -60,7 +60,7 @@ env = [
 
 [tool.ruff]
 line-length = 120
-select = [
+lint.select = [
     "E",  # pycodestyle errors
     "W",  # pycodestyle warnings
     "F",  # pyflakes
@@ -69,7 +69,7 @@ select = [
     "B",  # flake8-bugbear
     "UP",  # pyupgrade
 ]
-ignore = [
+lint.ignore = [
     "E501",  # line too long, handled by black
     "B008",  # do not perform function calls in argument defaults
     "B017",  # should be considered evil
@@ -77,9 +77,9 @@ ignore = [
     "W191",  # indentation contains tabs
 ]
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 known-third-party = ["pydantic", "requests", "pytest", "pytest_mock"]
 
 
-[tool.ruff.pycodestyle]
+[tool.ruff.lint.pycodestyle]
 max-line-length = 120
