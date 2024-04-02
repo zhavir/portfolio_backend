@@ -1,5 +1,14 @@
 # Changelog
 
+# [v1.0.5](https://github.com/zhavir/portfolio_backend/compare/v1.0.4...v1.0.5) 
+
+## 🐛 Fixing a bug
+- [`0d13826`](https://github.com/zhavir/portfolio_backend/commit/0d13826)  fix: fix pre commit checks 
+- [`7973639`](https://github.com/zhavir/portfolio_backend/commit/7973639)  fix: remove md format 
+
+## 🔧 Changing configuration files
+- [`87add1a`](https://github.com/zhavir/portfolio_backend/commit/87add1a)  chore: fix deprecation warning
+
 # [v1.0.4](https://github.com/zhavir/portfolio_backend/compare/v1.0.3...v1.0.4) 
 
 ## 🐛 Fixing a bug
