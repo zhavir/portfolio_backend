@@ -17,8 +17,9 @@ jobs:
           python-version: '3.12'
       - name: Install poetry
         uses: abatilo/actions-poetry@v3
-      - name: Check pre-commit
-        run: pre-commit run --all-files --show-diff-on-failure
+      - uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: --all-files
       - uses: actions/cache@v4
         name: Define a cache for the virtual environment based on the dependencies lock file
         with:
