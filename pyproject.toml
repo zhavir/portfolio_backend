@@ -51,8 +51,7 @@ init_typed = true
 warn_required_dynamic_aliases = true
 
 [tool.pytest.ini_options]
-addopts = ["--mypy", "-cov=src", "--cov=tests", "--cov-report=xml:coverage.xml"]
-testpaths = "tests/"
+addopts = ["--mypy", "--cov=src", "--cov-report=xml:coverage.xml"]
 pythonpath = [
   "src",
 ]
