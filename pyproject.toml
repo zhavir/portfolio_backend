@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "portfolio-backend"
-version = "0.1.0"
+version = 
 description = ""
 authors = ["Andrea Aramini, INI-MBM-BNC (EXT) <andrea.aramini@swisscom.com>"]
 readme = "README.md"

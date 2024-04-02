@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.0.1](https://github.com/zhavir/portfolio_backend/compare/v1.0.0...v1.0.1) 
+
+## 🐛 Fixing a bug
+- [`5e782c8`](https://github.com/zhavir/portfolio_backend/commit/5e782c8)  fix: fix semver versioning bumping
+
 # v1.0.0 
 
 ## 🐛 Fixing a bug
