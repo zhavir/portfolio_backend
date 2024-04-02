@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.0.4](https://github.com/zhavir/portfolio_backend/compare/v1.0.3...v1.0.4) 
+
+## 🐛 Fixing a bug
+- [`efa3df7`](https://github.com/zhavir/portfolio_backend/commit/efa3df7)  fix: add precommit checks
+
 # [v1.0.3](https://github.com/zhavir/portfolio_backend/compare/v1.0.2...v1.0.3) 
 
 ## 🐛 Fixing a bug
