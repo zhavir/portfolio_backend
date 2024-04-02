@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.0.6](https://github.com/zhavir/portfolio_backend/compare/v1.0.5...v1.0.6) 
+
+## 💄 Updating the UI and style files
+- [`250d8d9`](https://github.com/zhavir/portfolio_backend/commit/250d8d9)  chore: add dependabot also for npm
+
 # [v1.0.5](https://github.com/zhavir/portfolio_backend/compare/v1.0.4...v1.0.5) 
 
 ## 🐛 Fixing a bug
