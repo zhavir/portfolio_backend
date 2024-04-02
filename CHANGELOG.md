@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.0.3](https://github.com/zhavir/portfolio_backend/compare/v1.0.2...v1.0.3) 
+
+## 🐛 Fixing a bug
+- [`7c0555e`](https://github.com/zhavir/portfolio_backend/commit/7c0555e)  fix: fix coverage export
+
 # [v1.0.2](https://github.com/zhavir/portfolio_backend/compare/v1.0.1...v1.0.2) 
 
 ## 🐛 Fixing a bug
