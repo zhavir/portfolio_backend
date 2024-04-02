@@ -34,3 +34,4 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: zhavir/portfolio_backend
+          files: ./coverage.xml
