@@ -1,0 +1,18 @@
+services:
+  portfolio-backend:
+    build:
+      target: production
+    volumes:
+      - './src:/app/src'
+    image: 'portfolio-backend:production'
+    networks:
+      - production
+
+  tests:
+    build:
+      target: tests
+    image: 'portfolio-backend:tests'
+
+networks:
+  production:
+    driver: bridge

@@ -1,0 +1,116 @@
+name: Release Pipeline
+
+concurrency:
+  group: merge-${{ github.ref }}
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Run tests
+        run: docker compose up --build tests
+
+  semver:
+    needs: [tests]
+    permissions:
+      actions: write
+    runs-on: ubuntu-latest
+    outputs:
+      new_tag_version: ${{ steps.tag_version.outputs.new_tag_version }}
+    env:
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 21
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm install
+      - name: Dry run to get the next release version
+        run: |
+          export NEXT_TAG_VERSION=$(npx semantic-release --dry-run | grep 'The next release version is' | sed -E 's/.* ([[:digit:].]+)$/\1/')
+          echo "new_tag_version=${NEXT_TAG_VERSION}" >> $GITHUB_OUTPUT
+      - name: Semantic release
+        run: npm run semver
+
+  update-version-number:
+    runs-on: ubuntu-latest
+    needs: [semver]
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Update Version Number
+        run: |
+          OLD_VERSION=`cat pyproject.toml | grep ^version | cut -d '"' -f 2`
+          OLD_VERSION="\"$OLD_VERSION\""
+          NEW_VERSION="${{ needs.semver.outputs.new_tag_version }}"
+          sed -i "s+version = $OLD_VERSION+version = $NEW_VERSION+g" pyproject.toml
+      - name: Commit Changes
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git commit -a -m ":bookmark: chore: Update version number to $NEW_VERSION"
+          git push origin HEAD:main
+
+  deploy:
+    permissions:
+      id-token: write
+      actions: write
+    needs: [semver]
+    if: ${{ needs.semver.outputs.new_tag_version }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_GITHUB_ROLE }}
+          role-duration-seconds: 1200
+          aws-region: us-east-1
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 21
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm install
+      - name: Restore sst cache
+        id: restore-sst-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .sst
+          key: sst-cache
+      - name: Deploy app
+        run: |
+          npm run deploy
+      - name: Delete Previous Cache
+        if: ${{ steps.restore-sst-cache.outputs.cache-hit }}
+        continue-on-error: true
+        run: |
+          gh cache delete "sst-cache"
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Save sst cache
+        id: save-sst-cache
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            .sst
+          key: sst-cache
