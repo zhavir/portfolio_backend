@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.0.2](https://github.com/zhavir/portfolio_backend/compare/v1.0.1...v1.0.2) 
+
+## 🐛 Fixing a bug
+- [`90c70d9`](https://github.com/zhavir/portfolio_backend/commit/90c70d9)  fix: fix bumping pyproject version
+
 # [v1.0.1](https://github.com/zhavir/portfolio_backend/compare/v1.0.0...v1.0.1) 
 
 ## 🐛 Fixing a bug
