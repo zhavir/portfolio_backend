@@ -16,8 +16,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install poetry
-        uses: abatilo/actions-poetry@v2
-
+        uses: abatilo/actions-poetry@v3
+      - name: Check pre-commit
+        run: pre-commit run --all-files --show-diff-on-failure
       - uses: actions/cache@v4
         name: Define a cache for the virtual environment based on the dependencies lock file
         with:
@@ -27,7 +28,6 @@ jobs:
         run: poetry install
       - name: Run the automated tests (for example)
         run: poetry run pytest -v
-
       - name: Upload coverage
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: codecov/codecov-action@v4
