@@ -1,5 +1,12 @@
 # Changelog
 
+# [v1.1.2](https://github.com/zhavir/portfolio_backend/compare/v1.1.1...v1.1.2) 
+
+## 🐛 Fixing a bug
+- [`2a97e93`](https://github.com/zhavir/portfolio_backend/commit/2a97e93)  fix: install dev dep 
+- [`939da70`](https://github.com/zhavir/portfolio_backend/commit/939da70)  fix: fix openapi docs 
+- [`b1da1b5`](https://github.com/zhavir/portfolio_backend/commit/b1da1b5)  fix: fix mypy annotation
+
 # [v1.1.1](https://github.com/zhavir/portfolio_backend/compare/v1.1.0...v1.1.1) 
 
 ## 🐛 Fixing a bug
