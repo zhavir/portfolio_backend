@@ -82,6 +82,8 @@ jobs:
       - name: Install cdk
         run: |
           npm install -g aws-cdk
+      - name: Install the project dependencies
+        run: poetry install
       - name: Restore cdk cache
         id: restore-cdk-cache
         uses: actions/cache@v4
