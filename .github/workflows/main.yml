@@ -89,7 +89,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            .cdk.out
+            cdk.out
           key: cdk-cache
       - name: Deploy app
         run: |
@@ -107,5 +107,5 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: |
-            .cdk.out
+            cdk.out
           key: cdk-cache
