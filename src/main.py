@@ -1,6 +1,8 @@
-def test() -> None:
-    print("hello world")
-
+import uvicorn
 
 if __name__ == "__main__":
-    test()
+    uvicorn.run(
+        "src.core.application:app",
+        port=8080,
+        reload=True,
+    )
