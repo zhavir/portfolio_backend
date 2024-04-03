@@ -1,5 +1,24 @@
 # Changelog
 
+# [v1.1.1](https://github.com/zhavir/portfolio_backend/compare/v1.1.0...v1.1.1) 
+
+## 🐛 Fixing a bug
+- [`84b8c41`](https://github.com/zhavir/portfolio_backend/commit/84b8c41)  fix: fix deploy pipeline
+
+# [v1.1.0](https://github.com/zhavir/portfolio_backend/compare/v1.0.6...v1.1.0) 
+
+## ✨ Introducing new features
+- [`cd5c71e`](https://github.com/zhavir/portfolio_backend/commit/cd5c71e)  feature: force version update 
+
+## 🚀 Deploying stuff
+- [`3b5ebbd`](https://github.com/zhavir/portfolio_backend/commit/3b5ebbd)  feature: add deploy step to aws 
+
+## 🚧 Work in progress
+- [`1b38676`](https://github.com/zhavir/portfolio_backend/commit/1b38676)  chore: add skeleton for contact me api 
+
+## 🧱 Infrastructure related changes
+- [`a8c7981`](https://github.com/zhavir/portfolio_backend/commit/a8c7981)  chore: remove useless asset
+
 # [v1.0.6](https://github.com/zhavir/portfolio_backend/compare/v1.0.5...v1.0.6) 
 
 ## 💄 Updating the UI and style files
