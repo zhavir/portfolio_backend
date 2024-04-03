@@ -11,7 +11,7 @@
 - [`cd5c71e`](https://github.com/zhavir/portfolio_backend/commit/cd5c71e)  feature: force version update 
 
 ## 🚀 Deploying stuff
-- [`3b5ebbd`](https://github.com/zhavir/portfolio_backend/commit/3b5ebbd)  feature: add deply step to aws 
+- [`3b5ebbd`](https://github.com/zhavir/portfolio_backend/commit/3b5ebbd)  feature: add deploy step to aws 
 
 ## 🚧 Work in progress
 - [`1b38676`](https://github.com/zhavir/portfolio_backend/commit/1b38676)  chore: add skeleton for contact me api 

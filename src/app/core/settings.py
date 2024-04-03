@@ -1,5 +1,5 @@
 from functools import cache
-from typing import Literal
+from typing import Literal, Optional
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -22,6 +22,7 @@ class Application(BaseSettings):
     docs_url: str = "/docs"
     redoc_url: str = "/redoc"
     routers: Routers = Routers()
+    root_path: Optional[Literal["/prod", "/stage"]] = None
 
 
 class Logger(BaseSettings):
