@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.1.5](https://github.com/zhavir/portfolio_backend/compare/v1.1.4...v1.1.5) 
+
+## 🐛 Fixing a bug
+- [`f4236d5`](https://github.com/zhavir/portfolio_backend/commit/f4236d5)  fix: fix deploy pipeline
+
 # [v1.1.4](https://github.com/zhavir/portfolio_backend/compare/v1.1.3...v1.1.4) 
 
 ## 🐛 Fixing a bug
