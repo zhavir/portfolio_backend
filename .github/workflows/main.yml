@@ -94,6 +94,7 @@ jobs:
           key: cdk-cache
       - name: Deploy app
         run: |
+          source $(poetry env info -p)/bin/activate
           cdk deploy --all --require-approval=never
       - name: Delete Previous Cache
         if: ${{ steps.restore-cdk-cache.outputs.cache-hit }}
