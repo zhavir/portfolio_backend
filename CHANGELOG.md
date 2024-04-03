@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.1.6](https://github.com/zhavir/portfolio_backend/compare/v1.1.5...v1.1.6) 
+
+## 🐛 Fixing a bug
+- [`32bc098`](https://github.com/zhavir/portfolio_backend/commit/32bc098)  fix: fix cache saves
+
 # [v1.1.5](https://github.com/zhavir/portfolio_backend/compare/v1.1.4...v1.1.5) 
 
 ## 🐛 Fixing a bug
