@@ -91,7 +91,7 @@ jobs:
           key: cdk-cache
       - name: Deploy app
         run: |
-          npm run deploy
+          cdk deploy --all --require-approval=never
       - name: Delete Previous Cache
         if: ${{ steps.restore-cdk-cache.outputs.cache-hit }}
         continue-on-error: true
