@@ -5,6 +5,10 @@ services:
     volumes:
       - './src:/app/src'
     image: 'portfolio-backend:production'
+    environment:
+      logger_json_format: true
+    ports:
+      - '8080:8080'
     networks:
       - production
 

@@ -35,3 +35,6 @@ commitlint.config.js
 package.json
 package-lock.json
 release.config.js
+cdk.out/
+.vscode
+stacks/
