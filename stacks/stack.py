@@ -6,6 +6,7 @@ import aws_cdk as cdk
 import aws_cdk.aws_apigateway as apigateway
 import aws_cdk.aws_lambda as lambda_
 import aws_cdk.aws_lambda_python_alpha as python
+import tomllib
 
 
 class ApiStack(cdk.Stack):
@@ -16,12 +17,18 @@ class ApiStack(cdk.Stack):
             copytree(cwd.joinpath("src").absolute(), tmpdir, dirs_exist_ok=True)
             for f in ["poetry.lock", "pyproject.toml"]:
                 copyfile(cwd.joinpath(f), f"{tmpdir}/{f}")
+
+            with open(f"{tmpdir}/pyproject.toml", "rb") as f:
+                _META = tomllib.load(f)
+
+            version = _META["tool"]["poetry"]["version"]
             lambda_function = python.PythonFunction(
                 self,
                 "Function",
                 entry=tmpdir,
                 runtime=lambda_.Runtime.PYTHON_3_12,
                 index="app/sst.py",
+                environment={"application_version": version},
                 bundling=python.BundlingOptions(
                     asset_excludes=["tests", ".ruff_cache", ".pytest_cache", "__pycache__"],
                 ),
