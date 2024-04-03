@@ -4,7 +4,7 @@ from functools import cache
 
 import structlog
 
-from src.core.settings import get_settings
+from app.core.settings import get_settings
 
 
 @cache

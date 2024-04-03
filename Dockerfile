@@ -9,7 +9,7 @@ ENV POETRY_NO_INTERACTION=1 \
 
 RUN python3 -m venv ${POETRY_HOME} && ${POETRY_HOME}/bin/pip install poetry==${POETRY_VERSION}
 
-WORKDIR /app
+WORKDIR /src
 
 COPY pyproject.toml poetry.lock ./
 
@@ -21,28 +21,30 @@ RUN --mount=type=cache,target=$POETRY_CACHE_DIR $POETRY_HOME/bin/poetry install 
 
 FROM python:3.12.2-slim as tests
 
-ENV VIRTUAL_ENV=/app/.venv \
-    PATH="/app/.venv/bin:$POETRY_HOME/bin:$PATH" \
-    PYTHONPATH=/app/ \
+ENV VIRTUAL_ENV=/src/.venv \
+    PATH="/src/.venv/bin:$POETRY_HOME/bin:$PATH" \
+    PYTHONPATH=/src/ \
     PYTHONUNBUFFERED=1
 
 COPY --from=test-builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
-WORKDIR /app
-COPY . .
+WORKDIR /src
+COPY pyproject.toml poetry.lock ./
+COPY src/app app
+COPY src/tests tests
 
 ENTRYPOINT ["pytest"]
 
 
 FROM python:3.12.2-slim as production
 
-ENV VIRTUAL_ENV=/app/.venv \
-    PATH="/app/.venv/bin:$POETRY_HOME/bin:$PATH" \
-    PYTHONPATH=/app/ \
+ENV VIRTUAL_ENV=/src/.venv \
+    PATH="/src/.venv/bin:$POETRY_HOME/bin:$PATH" \
+    PYTHONPATH=/src/ \
     PYTHONUNBUFFERED=1
 
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
-WORKDIR /app
-COPY src src
-ENTRYPOINT ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8080"]
+WORKDIR /src
+COPY src/app app
+ENTRYPOINT ["uvicorn", "app.core.application:app", "--host", "0.0.0.0", "--port", "8080"]

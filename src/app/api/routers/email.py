@@ -1,7 +1,7 @@
 from fastapi import APIRouter, status
 
-from src.core.logger import get_logger
-from src.models import ContactForm, Message
+from app.core.logger import get_logger
+from app.models import ContactForm, Message
 
 router = APIRouter()
 

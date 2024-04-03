@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 
-from src.api.api_router import get_api_router
-from src.core.settings import get_settings
+from app.api.api_router import get_api_router
+from app.core.settings import get_settings
 
 
 def get_application() -> FastAPI:

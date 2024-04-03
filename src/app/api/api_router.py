@@ -2,7 +2,7 @@ from functools import cache
 
 from fastapi import APIRouter
 
-from src.api.routers import email
+from app.api.routers import email
 
 
 @cache

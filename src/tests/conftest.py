@@ -1,9 +1,8 @@
 from typing import AsyncGenerator
 
 import pytest
+from app.core.application import get_application
 from httpx import ASGITransport, AsyncClient
-
-from src.core.application import get_application
 
 
 @pytest.fixture
