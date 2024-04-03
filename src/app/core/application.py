@@ -8,7 +8,7 @@ def get_application() -> FastAPI:
     settings = get_settings()
 
     app = FastAPI(
-        root_path=settings.application.root_path,
+        root_path=settings.application.root_path,  # type: ignore
         title=settings.application.title,
         version=settings.application.version,
     )
