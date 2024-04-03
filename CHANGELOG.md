@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.1.1](https://github.com/zhavir/portfolio_backend/compare/v1.1.0...v1.1.1) 
+
+## 🐛 Fixing a bug
+- [`84b8c41`](https://github.com/zhavir/portfolio_backend/commit/84b8c41)  fix: fix deploy pipeline
+
 # [v1.1.0](https://github.com/zhavir/portfolio_backend/compare/v1.0.6...v1.1.0) 
 
 ## ✨ Introducing new features
