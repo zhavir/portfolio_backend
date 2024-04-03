@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.1.3](https://github.com/zhavir/portfolio_backend/compare/v1.1.2...v1.1.3) 
+
+## 🐛 Fixing a bug
+- [`bba4051`](https://github.com/zhavir/portfolio_backend/commit/bba4051)  fix: fix deploy pipeline
+
 # [v1.1.2](https://github.com/zhavir/portfolio_backend/compare/v1.1.1...v1.1.2) 
 
 ## 🐛 Fixing a bug
