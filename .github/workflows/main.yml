@@ -81,7 +81,6 @@ jobs:
         uses: abatilo/actions-poetry@v3
       - name: Install cdk
         run: |
-          poetry shell
           npm install -g aws-cdk
       - name: Install the project dependencies
         run: poetry install
