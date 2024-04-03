@@ -28,7 +28,7 @@ class ApiStack(cdk.Stack):
                 entry=tmpdir,
                 runtime=lambda_.Runtime.PYTHON_3_12,
                 index="app/sst.py",
-                environment={"application_version": version},
+                environment={"application_version": version, "application_root_path": "/prod"},
                 bundling=python.BundlingOptions(
                     asset_excludes=["tests", ".ruff_cache", ".pytest_cache", "__pycache__"],
                 ),
