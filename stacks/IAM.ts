@@ -4,8 +4,10 @@ import { StackContext } from 'sst/constructs';
 
 export function IAM({ app, stack }: StackContext) {
   if (app.stage === 'production') {
-    const provider = iam.OpenIdConnectProvider.fromOpenIdConnectProviderArn(stack, 'GitHub', 
-    "arn:aws:iam::992382494893:oidc-provider/token.actions.githubusercontent.com"
+    const provider = iam.OpenIdConnectProvider.fromOpenIdConnectProviderArn(
+      stack,
+      'GitHub',
+      'arn:aws:iam::992382494893:oidc-provider/token.actions.githubusercontent.com',
     );
 
     const organization = 'zhavir'; // Use your GitHub organization
