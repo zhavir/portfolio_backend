@@ -9,7 +9,7 @@ export function Site({ app, stack }: StackContext) {
     entry: 'src',
     runtime: Runtime.PYTHON_3_12,
     index: 'app/sst.py',
-    environment: {application_version: process.env.APPLICATION_VERSION || "1.0.0", application_environment: "prod"},
+    environment: {application_version: process.env.APPLICATION_VERSION || "0.1.0", application_environment: "prod"},
     bundling: {
       assetExcludes: ["tests", ".ruff_cache", ".pytest_cache", "__pycache__"]
     },

@@ -41,7 +41,7 @@ class Logger(BaseSettings):
     )
 
     level: Literal["INFO", "DEBUG", "ERROR", "WARNING"] = "INFO"
-    json_format: bool = False
+    json_format: bool = True
 
 
 class Settings(BaseSettings):

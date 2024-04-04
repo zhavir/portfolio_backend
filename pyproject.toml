@@ -57,7 +57,7 @@ warn_required_dynamic_aliases = true
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
-addopts = ["--mypy", "--cov=src", "--cov-report=xml:coverage.xml"]
+addopts = ["--mypy", "--cov=src/app", "--cov-report=xml:coverage.xml"]
 pythonpath = [
   "src",
 ]
