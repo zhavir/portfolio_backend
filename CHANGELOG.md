@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.2.1](https://github.com/zhavir/portfolio_backend/compare/v1.2.0...v1.2.1) 
+
+## 🐛 Fixing a bug
+- [`4434cb2`](https://github.com/zhavir/portfolio_backend/commit/4434cb2)  fix: fix docker paths
+
 # [v1.2.0](https://github.com/zhavir/portfolio_backend/compare/v1.1.6...v1.2.0) 
 
 ## ✨ Introducing new features
