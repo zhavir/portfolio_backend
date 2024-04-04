@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.2.0](https://github.com/zhavir/portfolio_backend/compare/v1.1.6...v1.2.0) 
+
+## ✨ Introducing new features
+- [`0eed30c`](https://github.com/zhavir/portfolio_backend/commit/0eed30c)  feature: replace cdk deploy with sst
+
 # [v1.1.6](https://github.com/zhavir/portfolio_backend/compare/v1.1.5...v1.1.6) 
 
 ## 🐛 Fixing a bug
