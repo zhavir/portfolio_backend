@@ -1,7 +1,10 @@
 from functools import cache
-from typing import Literal, Optional
+from typing import Literal
 
+from pydantic import computed_field
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+from app.core.constants import Environment
 
 
 class Routers(BaseSettings):
@@ -19,10 +22,13 @@ class Application(BaseSettings):
 
     title: str = "Portfolio API"
     version: str = "0.1.0"
-    docs_url: str = "/docs"
-    redoc_url: str = "/redoc"
     routers: Routers = Routers()
-    root_path: Optional[Literal["/prod", "/stage"]] = None
+    environment: Environment = Environment.prod
+
+    @computed_field  # type: ignore[misc]
+    @property
+    def root_path(self) -> str:
+        return f"/{self.environment}"
 
 
 class Logger(BaseSettings):

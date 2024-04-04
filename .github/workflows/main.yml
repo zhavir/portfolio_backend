@@ -69,43 +69,36 @@ jobs:
           role-to-assume: ${{ secrets.AWS_GITHUB_ROLE }}
           role-duration-seconds: 1200
           aws-region: us-east-1
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      - name: Install poetry
-        uses: abatilo/actions-poetry@v3
-      - name: Install cdk
-        run: |
-          npm install -g aws-cdk
+          node-version: 21
+          cache: 'npm'
       - name: Install the project dependencies
-        run: poetry install
-      - name: Restore cdk cache
-        id: restore-cdk-cache
+        run: npm install
+      - name: Restore sst cache
+        id: restore-sst-cache
         uses: actions/cache@v4
         with:
           path: |
-            cdk.out
-          key: cdk-cache
+            .sst
+          key: sst-cache
       - name: Deploy app
+        env:
+          APPLICATION_VERSION: ${{ needs.semver.outputs.new_tag_version }}
         run: |
-          source $(poetry env info -p)/bin/activate
-          cdk deploy --all --require-approval=never
+          npm run deploy
       - name: Delete Previous Cache
-        if: ${{ steps.restore-cdk-cache.outputs.cache-hit }}
+        if: ${{ steps.restore-sst-cache.outputs.cache-hit }}
         continue-on-error: true
         run: |
-          gh cache delete "cdk-cache"
+          gh cache delete "sst-cache"
         env:
           GH_TOKEN: ${{ github.token }}
-      - name: Save cdk cache
-        id: save-cdk-cache
+      - name: Save sst cache
+        id: save-sst-cache
         uses: actions/cache/save@v4
         with:
           path: |
-            cdk.out
-          key: cdk-cache
+            .sst
+          key: sst-cache
