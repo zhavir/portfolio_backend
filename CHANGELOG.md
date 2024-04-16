@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.3.2](https://github.com/zhavir/portfolio_backend/compare/v1.3.1...v1.3.2) 
+
+## 🐛 Fixing a bug
+- [`3075ba4`](https://github.com/zhavir/portfolio_backend/commit/3075ba4)  fix: fix missing env var
+
 # [v1.3.1](https://github.com/zhavir/portfolio_backend/compare/v1.3.0...v1.3.1) 
 
 ## 🐛 Fixing a bug
