@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 
 class Message(BaseModel):
@@ -6,6 +6,6 @@ class Message(BaseModel):
 
 
 class ContactForm(BaseModel):
-    from_email: str
+    from_email: EmailStr
     subject: str
     text: str

@@ -1,7 +1,9 @@
-from fastapi import APIRouter, status
+from fastapi import APIRouter, Request, status
 
+from app.core.boto_client_proxy import BotoClientProxy
 from app.core.logger import get_logger
 from app.models import ContactForm, Message
+from app.services.send_email_service import SendEmailService
 
 router = APIRouter()
 
@@ -10,9 +12,10 @@ router = APIRouter()
     "/contact-me/",
     status_code=status.HTTP_201_CREATED,
 )
-async def contact_me(email_form: ContactForm) -> Message:
+async def contact_me(request: Request, email_form: ContactForm) -> Message:
     logger = get_logger()
-
     logger.info("Received request for sending email")
-
-    return Message(text="Test email sent")
+    boto_client_proxy: BotoClientProxy = request.app.extra["boto_client_proxy"]
+    await SendEmailService(email_form=email_form, boto_client_proxy=boto_client_proxy).send_email()
+    logger.info("Email sent successfully")
+    return Message(text="Email sent")
