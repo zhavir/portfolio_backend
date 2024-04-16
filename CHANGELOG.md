@@ -1,5 +1,21 @@
 # Changelog
 
+# [v1.3.0](https://github.com/zhavir/portfolio_backend/compare/v1.2.1...v1.3.0) 
+
+## 🐛 Fixing a bug
+- [`281129e`](https://github.com/zhavir/portfolio_backend/commit/281129e)  chore: fix broken tests 
+
+## ✨ Introducing new features
+- [`e2058ce`](https://github.com/zhavir/portfolio_backend/commit/e2058ce)  feature: add implementation for send email 
+
+## 🧱 Infrastructure related changes
+- [`9952af0`](https://github.com/zhavir/portfolio_backend/commit/9952af0)  chore: fix indentation 
+- [`efc6dd5`](https://github.com/zhavir/portfolio_backend/commit/efc6dd5)  chore: add localstack 
+- [`3c2161c`](https://github.com/zhavir/portfolio_backend/commit/3c2161c)  chore: improve gitignore 
+- [`2ce42e6`](https://github.com/zhavir/portfolio_backend/commit/2ce42e6)  chore: configure sns queue 
+- [`cf06db4`](https://github.com/zhavir/portfolio_backend/commit/cf06db4)  chore: fix description 
+- [`c67551e`](https://github.com/zhavir/portfolio_backend/commit/c67551e)  chore: update dependencies
+
 # [v1.2.1](https://github.com/zhavir/portfolio_backend/compare/v1.2.0...v1.2.1) 
 
 ## 🐛 Fixing a bug
