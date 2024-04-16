@@ -7,7 +7,7 @@ export function IAM({ app, stack }: StackContext) {
     const provider = iam.OpenIdConnectProvider.fromOpenIdConnectProviderArn(
       stack,
       'GitHub',
-      'arn:aws:iam::992382494893:oidc-provider/token.actions.githubusercontent.com',
+      `arn:aws:iam::${process.env.CDK_DEFAULT_ACCOUNT}:oidc-provider/token.actions.githubusercontent.com`,
     );
 
     const organization = 'zhavir'; // Use your GitHub organization
