@@ -3,14 +3,34 @@ services:
     build:
       target: production
     volumes:
-      - './src:/app/src'
+      - './src/app:/app/app'
+      - './localstack/config:/root/.aws/config'
     image: 'portfolio-backend:production'
     environment:
       logger_json_format: false
+      aws_endpoint: 'http://localstack:4566'
+    command: --reload
     ports:
       - '8080:8080'
     networks:
       - production
+    depends_on:
+      - localstack
+
+  localstack:
+    image: localstack/localstack
+    ports:
+      - '4566:4566'
+      - '4510-4559:4510-4559'
+    environment:
+      DEBUG: 1
+      SERVICES: sns
+    networks:
+      - production
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - './localstack/localstack-entrypoint.sh:/etc/localstack/init/ready.d/init-aws.sh'
+      - './localstack/config:/root/.aws/config'
 
   tests:
     build:

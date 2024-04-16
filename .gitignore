@@ -165,3 +165,7 @@ node_modules/
 .sst
 
 cdk.out/
+
+src/pyproject.toml
+src/poetry.lock
+.sts.config*

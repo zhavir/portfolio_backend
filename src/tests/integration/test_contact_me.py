@@ -6,7 +6,7 @@ from httpx import AsyncClient
 
 @pytest.mark.asyncio
 async def test_contact_me(test_client: AsyncClient) -> None:
-    expected = {"text": "Test email sent"}
+    expected = {"text": "Email sent"}
     contact_form = ContactForm(
         from_email="test@test.it",
         subject="a-subject",
