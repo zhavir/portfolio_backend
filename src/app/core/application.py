@@ -24,6 +24,3 @@ def get_application() -> FastAPI:
     app.include_router(get_api_router(), prefix=settings.application.routers.api_v1)
 
     return app
-
-
-app = get_application()

@@ -46,4 +46,4 @@ COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
 WORKDIR /app
 COPY src/app app
-ENTRYPOINT ["uvicorn", "app.core.application:app", "--host", "0.0.0.0", "--port", "8080"]
+ENTRYPOINT ["uvicorn", "app.core.application:get_application", "--host", "0.0.0.0", "--port", "8080"]

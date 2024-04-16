@@ -10,9 +10,9 @@ from app.core.settings import get_settings
 
 
 class BotoClientProxy:
-    def __init__(self, session: Optional[botocore.session.Session] = None) -> None:
+    def __init__(self, region_name: Optional[str] = None, session: Optional[botocore.session.Session] = None) -> None:
         settings = get_settings()
-        boto_session = boto3.Session(botocore_session=session)
+        boto_session = boto3.Session(region_name=region_name, botocore_session=session)
 
         self._endpoint = settings.aws.endpoint
         self._sns_client: SNSClient = boto_session.client(
@@ -23,5 +23,7 @@ class BotoClientProxy:
         await run_in_threadpool(self._sns_client.publish, *args, **kwargs)
 
 
-def get_boto_client_proxy(session: Optional[botocore.session.Session] = None) -> BotoClientProxy:
-    return BotoClientProxy(session=session)
+def get_boto_client_proxy(
+    region_name: Optional[str] = None, session: Optional[botocore.session.Session] = None
+) -> BotoClientProxy:
+    return BotoClientProxy(region_name=region_name, session=session)

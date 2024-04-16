@@ -10,7 +10,10 @@ from pytest_mock import MockerFixture
 
 @pytest.fixture
 def mock_boto(mocker: MockerFixture) -> Generator[Mock, None, None]:
-    yield mocker.patch("app.core.application.get_boto_client_proxy", return_value=get_boto_client_proxy(session=Mock()))
+    yield mocker.patch(
+        "app.core.application.get_boto_client_proxy",
+        return_value=get_boto_client_proxy(region_name="us-east-1", session=Mock()),
+    )
 
 
 @pytest.fixture
