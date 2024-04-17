@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.4.0](https://github.com/zhavir/portfolio_backend/compare/v1.3.4...v1.4.0) 
+
+## ✨ Introducing new features
+- [`4d6a4d8`](https://github.com/zhavir/portfolio_backend/commit/4d6a4d8)  feature: add healthcheck
+
 # [v1.3.4](https://github.com/zhavir/portfolio_backend/compare/v1.3.3...v1.3.4) 
 
 ## 🐛 Fixing a bug
