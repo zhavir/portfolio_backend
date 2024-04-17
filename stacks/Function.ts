@@ -36,6 +36,7 @@ export function Site({ app, stack }: StackContext) {
     bundling: {
       assetExcludes: ['tests', '.ruff_cache', '.pytest_cache', '__pycache__'],
     },
+    memorySize: 512,
   });
   const snsTopicPolicy = new iam.PolicyStatement({
     actions: ['sns:publish'],
@@ -53,7 +54,7 @@ export function Site({ app, stack }: StackContext) {
   const gateway = new apigateway.LambdaRestApi(stack, 'API', {
     handler: lambdaFunction,
     integrationOptions: {
-      timeout: Duration.seconds(5),
+      timeout: Duration.seconds(10),
     },
     domainName: {
       domainName: apiGatewayAlias,
@@ -65,7 +66,7 @@ export function Site({ app, stack }: StackContext) {
       allowOrigins: [`https://${domainName}`],
       allowMethods: apigateway.Cors.ALL_METHODS,
       allowHeaders: apigateway.Cors.DEFAULT_HEADERS,
-      maxAge: Duration.minutes(10),
+      maxAge: Duration.days(1),
     },
   });
 
