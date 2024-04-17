@@ -1,7 +1,6 @@
 import { Runtime } from 'aws-cdk-lib/aws-lambda';
 import { PythonFunction } from '@aws-cdk/aws-lambda-python-alpha';
 import { StackContext } from 'sst/constructs';
-import { Duration } from 'aws-cdk-lib';
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as sns from 'aws-cdk-lib/aws-sns';
 import * as subscriptions from 'aws-cdk-lib/aws-sns-subscriptions';
@@ -9,6 +8,7 @@ import * as iam from 'aws-cdk-lib/aws-iam';
 import * as route53Targets from 'aws-cdk-lib/aws-route53-targets';
 import * as route53 from 'aws-cdk-lib/aws-route53';
 import * as acm from 'aws-cdk-lib/aws-certificatemanager';
+import * as cdk from 'aws-cdk-lib';
 
 export function Site({ app, stack }: StackContext) {
   const emailSNSTopic = new sns.Topic(stack, 'EmailTopic');
@@ -54,7 +54,7 @@ export function Site({ app, stack }: StackContext) {
   const gateway = new apigateway.LambdaRestApi(stack, 'API', {
     handler: lambdaFunction,
     integrationOptions: {
-      timeout: Duration.seconds(10),
+      timeout: cdk.Duration.seconds(10),
     },
     domainName: {
       domainName: apiGatewayAlias,
@@ -66,9 +66,20 @@ export function Site({ app, stack }: StackContext) {
       allowOrigins: [`https://${domainName}`],
       allowMethods: apigateway.Cors.ALL_METHODS,
       allowHeaders: apigateway.Cors.DEFAULT_HEADERS,
-      maxAge: Duration.days(1),
+      maxAge: cdk.Duration.days(1),
     },
   });
+
+  const eventRule = new cdk.aws_events.Rule(this, 'LambdaSchedule', {
+    schedule: cdk.aws_events.Schedule.rate(cdk.Duration.minutes(5)),
+  });
+  eventRule.addTarget(
+    new cdk.aws_events_targets.ApiGateway(gateway, {
+      path: '/api/v1/healthcheck/',
+      method: 'GET',
+      stage: 'prod',
+    }),
+  );
 
   const recordProps = {
     recordName: apiGatewayAlias,

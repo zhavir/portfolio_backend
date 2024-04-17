@@ -1,12 +1,18 @@
+from functools import cache
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.api_router import get_api_router
 from app.core.boto_client_proxy import get_boto_client_proxy
+from app.core.logger import get_logger
 from app.core.settings import get_settings
 
 
+@cache
 def get_application() -> FastAPI:
+    logger = get_logger()
+    logger.info("Setup application")
     settings = get_settings()
     app = FastAPI(
         root_path=settings.application.root_path,

@@ -14,8 +14,8 @@ router = APIRouter()
 )
 async def contact_me(request: Request, email_form: ContactForm) -> Message:
     logger = get_logger()
-    logger.info("Received request for sending email")
+    await logger.ainfo("Received request for sending email")
     boto_client_proxy: BotoClientProxy = request.app.extra["boto_client_proxy"]
     await SendEmailService(email_form=email_form, boto_client_proxy=boto_client_proxy).send_email()
-    logger.info("Email sent successfully")
+    await logger.ainfo("Email sent successfully")
     return Message(text="Email sent")
