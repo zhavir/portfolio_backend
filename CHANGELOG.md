@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.3.3](https://github.com/zhavir/portfolio_backend/compare/v1.3.2...v1.3.3) 
+
+## 🐛 Fixing a bug
+- [`0acf734`](https://github.com/zhavir/portfolio_backend/commit/0acf734)  fix: add mock to prelight option
+
 # [v1.3.2](https://github.com/zhavir/portfolio_backend/compare/v1.3.1...v1.3.2) 
 
 ## 🐛 Fixing a bug
