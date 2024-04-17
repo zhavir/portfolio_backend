@@ -61,6 +61,12 @@ export function Site({ app, stack }: StackContext) {
       endpointType: apigateway.EndpointType.EDGE,
       securityPolicy: apigateway.SecurityPolicy.TLS_1_2,
     },
+    defaultCorsPreflightOptions: {
+      allowOrigins: [`https://${domainName}`],
+      allowMethods: apigateway.Cors.ALL_METHODS,
+      allowHeaders: apigateway.Cors.DEFAULT_HEADERS,
+      maxAge: Duration.minutes(10),
+    },
   });
 
   const recordProps = {
