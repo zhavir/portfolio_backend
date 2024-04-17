@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.3.4](https://github.com/zhavir/portfolio_backend/compare/v1.3.3...v1.3.4) 
+
+## 🐛 Fixing a bug
+- [`ab62ded`](https://github.com/zhavir/portfolio_backend/commit/ab62ded)  fix: increase lambda memory
+
 # [v1.3.3](https://github.com/zhavir/portfolio_backend/compare/v1.3.2...v1.3.3) 
 
 ## 🐛 Fixing a bug
