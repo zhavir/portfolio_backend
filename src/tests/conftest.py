@@ -4,8 +4,14 @@ from unittest.mock import Mock
 import pytest
 from app.core.application import get_application
 from app.core.boto_client_proxy import get_boto_client_proxy
+from app.core.settings import Settings, get_settings
 from httpx import ASGITransport, AsyncClient
 from pytest_mock import MockerFixture
+
+
+@pytest.fixture
+def settings() -> Settings:
+    return get_settings()
 
 
 @pytest.fixture

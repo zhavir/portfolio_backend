@@ -25,6 +25,7 @@ class Application(BaseSettings):
     routers: Routers = Routers()
     environment: Optional[Environment] = None
     allow_origin: str = "http://localhost:3000"
+    cv_download_link: str = "tmp/Cv.pdf"
 
     @computed_field  # type: ignore[misc]
     @property

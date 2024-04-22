@@ -9,3 +9,7 @@ class ContactForm(BaseModel):
     from_email: EmailStr
     subject: str
     text: str
+
+
+class Curriculum(BaseModel):
+    download_link: str

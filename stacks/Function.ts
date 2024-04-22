@@ -31,6 +31,7 @@ export function Site({ app, stack }: StackContext) {
       application_version: process.env.APPLICATION_VERSION || '0.1.0',
       application_environment: 'prod',
       application_allow_origin: `https://${domainName}`,
+      application_cv_download_link: process.env.CV_DOWNLOAD_LINK || '',
       aws_email_topic_arn: emailSNSTopic.topicArn,
     },
     bundling: {

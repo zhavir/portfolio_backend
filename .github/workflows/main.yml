@@ -86,6 +86,7 @@ jobs:
       - name: Deploy app
         env:
           APPLICATION_VERSION: ${{ needs.semver.outputs.new_tag_version }}
+          CV_DOWNLOAD_LINK: ${{ secrets.CV_DOWNLOAD_LINK }}
           CDK_DEFAULT_ACCOUNT: ${{ secrets.CDK_DEFAULT_ACCOUNT }}
         run: |
           npm run deploy
