@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.6.0](https://github.com/zhavir/portfolio_backend/compare/v1.5.0...v1.6.0) 
+
+## ✨ Introducing new features
+- [`443b5ee`](https://github.com/zhavir/portfolio_backend/commit/443b5ee)  feature: remove dependencies from infrastructure
+
 # [v1.5.0](https://github.com/zhavir/portfolio_backend/compare/v1.4.0...v1.5.0) 
 
 ## ✨ Introducing new features
