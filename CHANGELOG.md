@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.7.1](https://github.com/zhavir/portfolio_backend/compare/v1.7.0...v1.7.1) 
+
+## 🐛 Fixing a bug
+- [`213fc5f`](https://github.com/zhavir/portfolio_backend/commit/213fc5f)  fix: fix missing email env var
+
 # [v1.7.0](https://github.com/zhavir/portfolio_backend/compare/v1.6.0...v1.7.0) 
 
 ## 🐛 Fixing a bug
