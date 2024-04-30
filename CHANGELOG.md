@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.7.2](https://github.com/zhavir/portfolio_backend/compare/v1.7.1...v1.7.2) 
+
+## 🐛 Fixing a bug
+- [`c63bb70`](https://github.com/zhavir/portfolio_backend/commit/c63bb70)  fix: fix wrong env var name
+
 # [v1.7.1](https://github.com/zhavir/portfolio_backend/compare/v1.7.0...v1.7.1) 
 
 ## 🐛 Fixing a bug
