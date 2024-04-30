@@ -1,5 +1,13 @@
 # Changelog
 
+# [v1.7.0](https://github.com/zhavir/portfolio_backend/compare/v1.6.0...v1.7.0) 
+
+## 🐛 Fixing a bug
+- [`52d4446`](https://github.com/zhavir/portfolio_backend/commit/52d4446)  fix: fix mock type 
+
+## ✨ Introducing new features
+- [`1ed1146`](https://github.com/zhavir/portfolio_backend/commit/1ed1146)  feature: improve performance
+
 # [v1.6.0](https://github.com/zhavir/portfolio_backend/compare/v1.5.0...v1.6.0) 
 
 ## ✨ Introducing new features
