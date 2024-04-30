@@ -1,7 +1,7 @@
 from functools import cache
 from typing import Literal, Optional
 
-from pydantic import computed_field
+from pydantic import EmailStr, computed_field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 from app.core.constants import Environment
@@ -24,8 +24,8 @@ class Application(BaseSettings):
     version: str = "0.1.0"
     routers: Routers = Routers()
     environment: Optional[Environment] = None
-    allow_origin: str = "http://localhost:3000"
     cv_download_link: str = "tmp/Cv.pdf"
+    personal_email: EmailStr = "test@test.com"
 
     @computed_field  # type: ignore[misc]
     @property

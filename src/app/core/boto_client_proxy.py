@@ -18,6 +18,13 @@ class BotoClientProxy:
         self._sns_client: SNSClient = boto_session.client(
             "sns", config=botocore.client.Config(tcp_keepalive=True), endpoint_url=settings.aws.endpoint
         )
+        list_subscription = self._sns_client.list_subscriptions_by_topic(TopicArn=get_settings().aws.email_topic_arn)
+        if get_settings().application.personal_email not in [i["Endpoint"] for i in list_subscription["Subscriptions"]]:
+            self._sns_client.subscribe(
+                TopicArn=get_settings().aws.email_topic_arn,
+                Protocol="email",
+                Endpoint=get_settings().application.personal_email,
+            )
 
     async def send_sns_message(self, *args: Any, **kwargs: Any) -> None:
         await run_in_threadpool(self._sns_client.publish, *args, **kwargs)
