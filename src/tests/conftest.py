@@ -1,5 +1,5 @@
 from typing import AsyncGenerator, Generator
-from unittest.mock import Mock
+from unittest.mock import MagicMock
 
 import pytest
 from app.core.application import get_application
@@ -15,15 +15,15 @@ def settings() -> Settings:
 
 
 @pytest.fixture
-def mock_boto(mocker: MockerFixture) -> Generator[Mock, None, None]:
+def mock_boto(mocker: MockerFixture) -> Generator[MagicMock, None, None]:
     yield mocker.patch(
         "app.core.application.get_boto_client_proxy",
-        return_value=get_boto_client_proxy(region_name="us-east-1", session=Mock()),
+        return_value=get_boto_client_proxy(region_name="us-east-1", session=MagicMock()),
     )
 
 
 @pytest.fixture
-async def test_client(mock_boto: Mock) -> AsyncGenerator[AsyncClient, None]:
+async def test_client(mock_boto: MagicMock) -> AsyncGenerator[AsyncClient, None]:
     app = get_application()
     async with AsyncClient(transport=ASGITransport(app=app), base_url="http://testserver") as client:  # type: ignore
         yield client
