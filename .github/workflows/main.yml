@@ -86,7 +86,7 @@ jobs:
       - name: Deploy app
         env:
           APPLICATION_VERSION: ${{ needs.semver.outputs.new_tag_version }}
-          PERSONAL_EMAIL_SUBSCRIPTION: ${{ secrets.PERSONAL_EMAIL_SUBSCRIPTION }}
+          PERSONAL_EMAIL: ${{ secrets.PERSONAL_EMAIL }}
           CV_DOWNLOAD_LINK: ${{ secrets.CV_DOWNLOAD_LINK }}
         run: |
           npm run deploy

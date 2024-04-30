@@ -15,8 +15,7 @@ export function Site({ stack }: StackContext) {
     environment: {
       application_version: process.env.APPLICATION_VERSION || '0.1.0',
       application_environment: 'prod',
-      application_personal_email_subscription:
-        process.env.PERSONAL_EMAIL_SUBSCRIPTION || 'test@test.com',
+      application_personal_email: process.env.PERSONAL_EMAIL || 'test@test.com',
       application_cv_download_link: process.env.CV_DOWNLOAD_LINK || '',
       aws_email_topic_arn: emailSNSTopic.topicArn,
     },
