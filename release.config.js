@@ -138,9 +138,8 @@ module.exports = {
     [
       '@semantic-release/git',
       {
-        assets: ['CHANGELOG.md'],
+        assets: ['CHANGELOG.md', 'pyproject.toml'],
         message: `${choreMessage}\n\n\${nextRelease.notes}`,
-        // message: choreMessage,
       },
     ],
     '@semantic-release/github',
