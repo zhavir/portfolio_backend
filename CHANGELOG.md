@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.7.3](https://github.com/zhavir/portfolio_backend/compare/v1.7.2...v1.7.3) 
+
+## 🐛 Fixing a bug
+- [`940046d`](https://github.com/zhavir/portfolio_backend/commit/940046d)  fix: improve release config
+
 # [v1.7.2](https://github.com/zhavir/portfolio_backend/compare/v1.7.1...v1.7.2) 
 
 ## 🐛 Fixing a bug
