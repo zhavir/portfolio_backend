@@ -49,6 +49,6 @@ def get_logger() -> structlog.stdlib.BoundLogger:
     logger.handlers.clear()
     logger.addHandler(handler)
     logger.setLevel(settings.logger.level)
-    app_logger: structlog.stdlib.BoundLogger = structlog.get_logger("FileTrackerApp")
+    app_logger: structlog.stdlib.BoundLogger = structlog.get_logger(settings.application.title)
     app_logger.info("Log level set to", logger_level=settings.logger.level)
     return app_logger
