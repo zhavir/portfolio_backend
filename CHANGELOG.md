@@ -1,5 +1,10 @@
 # Changelog
 
+# [v1.7.4](https://github.com/zhavir/portfolio_backend/compare/v1.7.3...v1.7.4) 
+
+## 💬 Updating text and literals
+- [`cef3e91`](https://github.com/zhavir/portfolio_backend/commit/cef3e91)  chore: fix logger name
+
 # [v1.7.3](https://github.com/zhavir/portfolio_backend/compare/v1.7.2...v1.7.3) 
 
 ## 🐛 Fixing a bug
